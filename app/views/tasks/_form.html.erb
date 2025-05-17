@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center">
+  <h1><strong>New Task</strong></h1>
+</div>
+<%= form_with(model: task, local: true) do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :details, class: "form-label" %>
+    <%= form.text_area :details, class: "form-control" %>
+  </div>
+
+<%= form.submit task.persisted? ? "Update Task" : "Create Task", class: "btn btn-primary" %>
+  <hr class="my-4">
+
+<% end %>
+
+<i class="fas fa-undo-alt"></i>
+<%= link_to "Back to list", tasks_path, class: "d-inline-block mt-3 text-decoration-none text-primary" %>

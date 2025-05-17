@@ -1,0 +1,17 @@
+
+  <h1 class="title d-flex justify-content-center my-3"><strong><%= @task.title %></strong></h1>
+<div class="link d-flex justify-content-end mx-5">
+  <%= link_to 'Edit', edit_task_path(@task) %>
+</div>
+  <hr class="my-4">
+  <h2 class="details d-flex justify-content-center"><%= @task.details %></h2>
+  <hr class="my-4">
+<div class="form mx-5">
+  <%= form_with model: @task, local: true do |f| %>
+    <%= f.check_box :completed, onchange: 'this.form.submit()' %>
+    <%= f.label :completed, "This task is not completed yet." %>
+  <% end %>
+</div>
+<p>
+  <%= link_to 'Back to list', tasks_path, class: "d-inline-block mx-4 my-2 text-primary text-decoration-none" %>
+</p>
